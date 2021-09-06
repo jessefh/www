@@ -8,12 +8,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center text-gray-700">
-        <h1 className="text-7xl font-bold">
+      <main className="flex flex-col items-center justify-center w-full flex-1 px-10 text-center text-gray-700">
+        <h1 className="text-5xl md:text-8xl font-bold">
           Jesse Haenen
         </h1>
 
-        <p className="mt-3 text-2xl px-20 font-light">
+        <p className="text:2xl md:text-3xl font-light mt-3">
           I'm a full-stack data scientist from Amsterdam
         </p>
 
