@@ -1,4 +1,3 @@
-from datetime import datetime
 from http.server import BaseHTTPRequestHandler
 
 import requests
@@ -19,6 +18,6 @@ class handler(BaseHTTPRequestHandler):
         book_title = currently_reading.find_all("a", class_="bookTitle")[0]
         book_author = currently_reading.find_all("a", class_="authorName")[0]
 
-        self.wfile.write(f"title:{book_title}, author:{book_author}".encode())
+        self.wfile.write("{'foo':'bar', 'bar':'foo'}".encode())
         return
 
