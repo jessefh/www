@@ -43,7 +43,7 @@ export default function Home() {
         </ul>
 
       <p class="flex mt-12 text-gray-500 font-source text-sm">
-        Now reading:&nbsp;<i>The Overstory</i>&nbsp;by&nbsp;<i>Richard Powers</i>. <a class="px-1 font-bold text-blue-400" href="https://www.goodreads.com/user/show/65474722-jesse" target="_blank" rel="noreferrer noopener">Visit Goodreads profile →</a>
+        Now reading:&nbsp;<i>Red Pill</i>&nbsp;by&nbsp;<i>Hari Kunzru</i>. <a class="px-1 font-bold text-blue-400" href="https://www.goodreads.com/user/show/65474722-jesse" target="_blank" rel="noreferrer noopener">Visit Goodreads profile →</a>
       </p>
       </main>
     </div>
