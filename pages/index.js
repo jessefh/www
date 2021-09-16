@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export default function Home() {
+export default function Home({book}) {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gradient-to-tr from-purple-200 via-purple-100 to-purple-50">
       <Head>
@@ -43,9 +43,19 @@ export default function Home() {
         </ul>
 
       <p class="flex mt-12 text-gray-500 font-source text-sm">
-        Now reading:&nbsp;<i>Red Pill</i>&nbsp;by&nbsp;<i>Hari Kunzru</i>. <a class="px-1 font-bold text-blue-400" href="https://www.goodreads.com/user/show/65474722-jesse" target="_blank" rel="noreferrer noopener">Visit Goodreads profile →</a>
+        Now reading:&nbsp;{book}. <a class="px-1 font-bold text-blue-400" href="https://www.goodreads.com/user/show/65474722-jesse" target="_blank" rel="noreferrer noopener">Visit Goodreads profile →</a>
       </p>
       </main>
     </div>
   )
+}
+
+export async function getServerSideProps() {
+  const res = await fetch('https://jessehaenen.me/api/book.py')
+
+  return {
+    props: {
+      book: res,
+    },
+  }
 }

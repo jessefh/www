@@ -12,8 +12,8 @@ class handler(BaseHTTPRequestHandler):
         soup = BeautifulSoup(page.content, "html.parser")
 
         currently_reading = soup.find(id="currentlyReadingReviews")
-        book_title = currently_reading.find_all("a", class_="bookTitle")[0].string
-        book_author = currently_reading.find_all("a", class_="authorName")[0].string
+        book_title = currently_reading.find_all("a", class_="bookTitle")[0]
+        book_author = currently_reading.find_all("a", class_="authorName")[0]
         current_book = {
             "book": book_title,
             "author": book_author,
