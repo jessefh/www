@@ -1,3 +1,4 @@
+import json
 from http.server import BaseHTTPRequestHandler
 
 import requests
@@ -17,8 +18,7 @@ class handler(BaseHTTPRequestHandler):
         currently_reading = soup.find(id="currentlyReadingReviews")
         book_title = currently_reading.find_all("a", class_="bookTitle")[0]
         book_author = currently_reading.find_all("a", class_="authorName")[0]
-        response = "Test"
 
-        self.wfile.write(response.encode())
+        self.wfile.write(json.dumps({"book": book_title, "author": book_author}))
         return
 
