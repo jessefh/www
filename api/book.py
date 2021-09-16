@@ -16,9 +16,12 @@ class handler(BaseHTTPRequestHandler):
         soup = BeautifulSoup(page.content, "html.parser")
 
         currently_reading = soup.find(id="currentlyReadingReviews")
-        book_title = currently_reading.find_all("a", class_="bookTitle")[0]
-        book_author = currently_reading.find_all("a", class_="authorName")[0]
+        data = {
+            "book": currently_reading.find_all("a", class_="bookTitle")[0],
+            "author": currently_reading.find_all("a", class_="authorName")[0],
+        }
+        json_string = json.dumps(data)
 
-        self.wfile.write(json.dumps({"book": book_title, "author": book_author}))
+        self.wfile.write(json_string.encode(encoding="utf_8"))
         return
 
