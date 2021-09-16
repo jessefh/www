@@ -15,7 +15,7 @@ class handler(BaseHTTPRequestHandler):
         book_title = currently_reading.find_all("a", class_="bookTitle")[0].string
         book_author = currently_reading.find_all("a", class_="authorName")[0].string
         current_book = {
-            "book": book_title,
+            "title": book_title,
             "author": book_author,
         }
 
