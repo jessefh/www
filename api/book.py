@@ -18,14 +18,11 @@ class handler(BaseHTTPRequestHandler):
             "book": book_title,
             "author": book_author,
         }
-        print(current_book)
 
-        current_book_string = f"{book_title} by {book_author}"
-        output_data = current_book_string.encode("utf-8")
+        output_data = json.dumps(current_book).encode("utf-8")
 
         self.send_response(200)
-        self.send_header("Content-type", "text/plain")
-        self.send_header("Content-Length", str(len(output_data)))
+        self.send_header("Content-type", "application/json")
         self.end_headers()
 
         self.wfile.write(output_data)
