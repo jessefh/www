@@ -52,10 +52,11 @@ export default function Home({book}) {
 
 export async function getServerSideProps() {
   const res = await fetch('https://jessehaenen.me/api/book.py')
+  const json = await res.json()
 
   return {
     props: {
-      book: res,
+      book: json,
     },
   }
 }
