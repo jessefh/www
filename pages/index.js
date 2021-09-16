@@ -43,7 +43,7 @@ export default function Home({book}) {
         </ul>
 
       <p class="flex mt-12 text-gray-500 font-source text-sm">
-        Now reading:{book.title} by {book.author}. <a class="px-1 font-bold text-blue-400" href="https://www.goodreads.com/user/show/65474722-jesse" target="_blank" rel="noreferrer noopener">Visit Goodreads profile →</a>
+        Now reading:&nbsp;<i>{book.title}</i>&nbsp;by&nbsp;{book.author}. <a class="px-1 font-bold text-blue-400" href="https://www.goodreads.com/user/show/65474722-jesse" target="_blank" rel="noreferrer noopener">Visit Goodreads profile →</a>
       </p>
       </main>
     </div>
