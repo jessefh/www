@@ -38,7 +38,7 @@ export default function Home({book}) {
             <a href="https://github.com/jessefh" target="_blank" rel="noreferrer noopener">GitHub</a>
           </li>
           <li class="mx-5 border-b-2 border-transparent hover:border-b-2 hover:hover:border-blue-400">
-            <a href="https://www.dropbox.com/s/oumpmllmmbwtu8f/cv_jesse_haenen.pdf?dl=0" target="_blank" rel="noreferrer noopener">CV</a>
+            <a href="https://drive.google.com/file/d/1LTAjQVxizMbCS00RRBaxOWqKCHBuc5vw/view?usp=sharing" target="_blank" rel="noreferrer noopener">CV</a>
           </li>
         </ul>
 
