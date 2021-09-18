@@ -19,17 +19,17 @@ export default function Home({book}) {
       </Head>
 
       <main className="flex flex-col items-center justify-center w-full flex-1 px-10 text-center text-gray-700">
-        <h1 className="text-7xl sm:text-8xl font-hind font-bold tracking-wide">
+        <h1 className="text-7xl sm:text-8xl font-mono font-bold tracking-wide">
           Jesse Haenen
         </h1>
 
-        <p className="text-xl sm:text-2xl font-source mt-2">
+        <p className="text-xl sm:text-2xl font-mono mt-2">
           I'm a full-stack data scientist from Amsterdam.
         </p>
 
-        <ul class="flex mt-3 text-gray-500 font-source text-lg">
+        <ul class="flex mt-3 text-gray-500 font-mono text-lg">
           <li class="mx-5 border-b-2 border-transparent hover:border-b-2 hover:border-blue-400">
-            <a href="mailto:jessehaenen@pm.me">Mail</a>
+            <a href="mailto:jessehaenen@gmail.com">Mail</a>
           </li>
           <li class="mx-5 border-b-2 border-transparent hover:border-b-2 hover:border-blue-400">
             <a href="https://www.linkedin.com/in/jesse-fh/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
