@@ -51,7 +51,7 @@ export default function Home({book}) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const res = await fetch('https://jessehaenen.me/api/book.py')
   const json = await res.json()
 
