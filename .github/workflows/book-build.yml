@@ -1,0 +1,13 @@
+name: Weekly book build
+on:
+  schedule:
+    - cron: '* 0 * * 1'
+jobs:
+  trigger-build:
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        env:
+          VERCEL_BUILD_HOOK: ${{ secrets.VERCEL_BUILD_HOOK }}
+        run: |
+          curl -X POST "$VERCEL_BUILD_HOOK"
