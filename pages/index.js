@@ -2,11 +2,13 @@ import Head from 'next/head'
 
 export default function Home({book}) {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gradient-to-tr from-purple-200 via-purple-100 to-purple-50">
+    <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
         <title>Jesse Haenen</title>
         <link rel="icon" href="/favicon.png" />
-        <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai&family=Source+Sans+Pro&display=swap" rel="stylesheet"></link>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />        
         <meta name="description" content="Full-stack Data Scientist from Amsterdam. Feel free to get in touch!" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta name="theme-color" content="white" />
@@ -18,34 +20,37 @@ export default function Home({book}) {
         <meta name="apple-mobile-web-app-status-bar-style" content="white" />
       </Head>
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-10 text-center text-gray-700">
-        <h1 className="text-7xl sm:text-8xl font-mono font-bold tracking-wide">
+      <main className="flex flex-col items-center justify-center w-full flex-1 px-10 text-center text-gray-500">
+        <h1 className="text-4xl sm:text-5xl font-inter">
           Jesse Haenen
         </h1>
 
-        <p className="text-xl sm:text-2xl font-mono mt-2">
+        <p className="text-lg sm:text-xl font-inter mt-2">
           I'm a full-stack data scientist from Amsterdam.
         </p>
 
-        <ul class="flex mt-3 text-gray-500 font-mono text-lg">
-          <li class="mx-5 border-b-2 border-transparent hover:border-b-2 hover:border-blue-400">
-            <a href="mailto:jessehaenen@gmail.com">Mail</a>
+        <ul class="flex mt-12 text-gray-500 font-inter text-sm">
+          <li class="mx-3 border-b-2 border-transparent hover:border-b-2 hover:border-blue-400">
+            <a href="">BLOG</a>
           </li>
-          <li class="mx-5 border-b-2 border-transparent hover:border-b-2 hover:border-blue-400">
-            <a href="https://www.linkedin.com/in/jesse-fh/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+          <li class="mx-3 border-b-2 border-transparent hover:border-b-2 hover:border-blue-400">
+            <a href="mailto:jessehaenen@gmail.com">MAIL</a>
           </li>
-          <li class="mx-5 border-b-2 border-transparent hover:border-b-2 hover:border-blue-400">
-            <a href="https://github.com/jessefh" target="_blank" rel="noreferrer noopener">GitHub</a>
+          <li class="mx-3 border-b-2 border-transparent hover:border-b-2 hover:border-blue-400">
+            <a href="https://www.linkedin.com/in/jesse-fh/" target="_blank" rel="noreferrer noopener">LINKEDIN</a>
           </li>
-          <li class="mx-5 border-b-2 border-transparent hover:border-b-2 hover:hover:border-blue-400">
-            <a href="https://drive.google.com/file/d/1LTAjQVxizMbCS00RRBaxOWqKCHBuc5vw/view?usp=sharing" target="_blank" rel="noreferrer noopener">CV</a>
+          <li class="mx-3 border-b-2 border-transparent hover:border-b-2 hover:border-blue-400">
+            <a href="https://github.com/jessefh" target="_blank" rel="noreferrer noopener">CODE</a>
+          </li>
+          <li class="mx-3 border-b-2 border-transparent hover:border-b-2 hover:hover:border-blue-400">
+            <a href="https://drive.google.com/file/d/1LTAjQVxizMbCS00RRBaxOWqKCHBuc5vw/view?usp=sharing" target="_blank" rel="noreferrer noopener">RESUME</a>
           </li>
         </ul>
 
-      <p class="mt-12 text-gray-500 font-mono text-xs">
+      <p class="mt-12 text-gray-500 font-inter text-xs">
         Now reading: <i>{book.title}</i> by {book.author}.
       </p>
-      <a class="text-xs font-mono font-bold text-blue-400" href="https://www.goodreads.com/user/show/65474722-jesse" target="_blank" rel="noreferrer noopener">Visit Goodreads profile →</a>
+      <a class="text-xs font-inter text-blue-400" href="https://www.goodreads.com/user/show/65474722-jesse" target="_blank" rel="noreferrer noopener">Visit Goodreads profile →</a>
       </main>
     </div>
   )

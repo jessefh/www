@@ -5,8 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'hind': ['"Hind Madurai"', 'sans-serif'],
-        'source': ['"Source Sans Pro"', 'sans-serif']
+        'inter': ['"Inter"', '-apple-system', 'system-ui', 'sans-serif'],
       }
     },
   },
