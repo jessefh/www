@@ -22,28 +22,28 @@ export default function Home({book}) {
 
       <main className="flex flex-col items-center justify-center w-full flex-1 px-10 text-center text-gray-500">
         <h1 className="text-4xl sm:text-5xl font-inter">
-          Jesse Haenen
+          Hi, i'm <a className="font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-green-400 to-blue-500">Jesse Haenen</a>.
         </h1>
 
         <p className="text-lg sm:text-xl font-inter mt-2">
           I'm a full-stack data scientist from Amsterdam.
         </p>
 
-        <ul class="flex mt-12 text-gray-500 font-inter text-sm">
-          <li class="mx-3 border-b-2 border-transparent hover:border-b-2 hover:border-blue-400">
-            <a href="">BLOG</a>
+        <ul class="flex mt-12 text-gray-500 font-mono text-sm">
+          <li class="mx-3 border-b-2 border-transparent hover:border-b-2 hover:border-blue-500">
+            <a href="">blog</a>
           </li>
-          <li class="mx-3 border-b-2 border-transparent hover:border-b-2 hover:border-blue-400">
-            <a href="mailto:jessehaenen@gmail.com">MAIL</a>
+          <li class="mx-3 border-b-2 border-transparent hover:border-b-2 hover:border-blue-500">
+            <a href="mailto:jessehaenen@gmail.com">mail</a>
           </li>
-          <li class="mx-3 border-b-2 border-transparent hover:border-b-2 hover:border-blue-400">
-            <a href="https://www.linkedin.com/in/jesse-fh/" target="_blank" rel="noreferrer noopener">LINKEDIN</a>
+          <li class="mx-3 border-b-2 border-transparent hover:border-b-2 hover:border-blue-500">
+            <a href="https://www.linkedin.com/in/jesse-fh/" target="_blank" rel="noreferrer noopener">linkedin</a>
           </li>
-          <li class="mx-3 border-b-2 border-transparent hover:border-b-2 hover:border-blue-400">
-            <a href="https://github.com/jessefh" target="_blank" rel="noreferrer noopener">CODE</a>
+          <li class="mx-3 border-b-2 border-transparent hover:border-b-2 hover:border-blue-500">
+            <a href="https://github.com/jessefh" target="_blank" rel="noreferrer noopener">code</a>
           </li>
-          <li class="mx-3 border-b-2 border-transparent hover:border-b-2 hover:hover:border-blue-400">
-            <a href="https://drive.google.com/file/d/1LTAjQVxizMbCS00RRBaxOWqKCHBuc5vw/view?usp=sharing" target="_blank" rel="noreferrer noopener">RESUME</a>
+          <li class="mx-3 border-b-2 border-transparent hover:border-b-2 hover:hover:border-blue-500">
+            <a href="/resume.pdf" target="_blank" rel="noreferrer noopener">resume</a>
           </li>
         </ul>
 
