@@ -5,7 +5,7 @@ export default function Home({book}) {
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
         <title>Jesse Haenen</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />        
