@@ -42,9 +42,9 @@ export default function Home({book}) {
           <li class="mx-3 border-b-2 border-transparent hover:border-b-2 hover:border-blue-500">
             <a href="https://github.com/jessefh" target="_blank" rel="noreferrer noopener">code</a>
           </li>
-          <li class="mx-3 border-b-2 border-transparent hover:border-b-2 hover:hover:border-blue-500">
+          {/* <li class="mx-3 border-b-2 border-transparent hover:border-b-2 hover:hover:border-blue-500">
             <a href="/resume.pdf" target="_blank" rel="noreferrer noopener">resume</a>
-          </li>
+          </li> */}
         </ul>
 
       <p class="mt-12 text-gray-500 font-inter text-xs">
