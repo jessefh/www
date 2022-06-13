@@ -14,7 +14,7 @@ export default function Home({book}) {
         <meta name="theme-color" content="white" />
         <meta property="og:title" content="Jesse Haenen" />
         <meta property="og:type" content="website" />
-        <meta property="og:description" content="Full-stack Data Scientist from Amsterdam. Feel free to get in touch!" />
+        <meta property="og:description" content="Machine Learning Engineer from Amsterdam. Feel free to get in touch!" />
         <meta property="og:url" content="https://jessehaenen.me" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="white" />
@@ -26,7 +26,7 @@ export default function Home({book}) {
         </h1>
 
         <p className="text-lg sm:text-xl font-inter mt-2">
-          I'm a full-stack data scientist from Amsterdam.
+          I'm a Machine Learning Engineer from Amsterdam.
         </p>
 
         <ul class="flex mt-12 text-gray-500 font-mono text-sm">
