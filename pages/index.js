@@ -56,26 +56,26 @@ export default function Home({book}) {
   )
 }
 
-export async function getStaticProps() {
-  const res = await fetch('https://jessehaenen.me/api/book.py')
-  const data = await res.json()
+// export async function getStaticProps() {
+//   const res = await fetch('https://jessehaenen.me/api/book.py')
+//   const data = await res.json()
+//   console.log(data)
+//   if (!data) {
+//     return {
+//       props: {
+//         book: {
+//           author: "Andy Weir",
+//           title: "Project Hail Mary"
+//         }
+//       }
+//     }
+//   }
 
-  if (!data) {
-    return {
-      props: {
-        book: {
-          author: "Andy Weir",
-          title: "Project Hail Mary"
-        }
-      }
-    }
-  }
+//   return {
+//     props: {
+//       book: data,
+//     },
 
-  return {
-    props: {
-      book: data,
-    },
-
-    revalidate: 10
-  }
-}
+//     revalidate: 10
+//   }
+// }
