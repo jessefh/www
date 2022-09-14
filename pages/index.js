@@ -47,9 +47,9 @@ export default function Home() {
           </li> */}
         </ul>
 
-      <p class="mt-12 text-gray-500 font-inter text-xs">
+      {/* <p class="mt-12 text-gray-500 font-inter text-xs">
         Now reading: <i>{book.title}</i> by {book.author}.
-      </p>
+      </p> */}
       <a class="text-xs font-inter text-blue-400" href="https://www.goodreads.com/user/show/65474722-jesse" target="_blank" rel="noreferrer noopener">Visit Goodreads profile →</a>
       </main>
     </div>
