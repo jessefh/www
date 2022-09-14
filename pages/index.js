@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export default function Home() {
+export default function Home({book}) {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
@@ -47,35 +47,31 @@ export default function Home() {
           </li> */}
         </ul>
 
-      {/* <p class="mt-12 text-gray-500 font-inter text-xs">
+      <p class="mt-12 text-gray-500 font-inter text-xs">
         Now reading: <i>{book.title}</i> by {book.author}.
-      </p> */}
+      </p>
       <a class="text-xs font-inter text-blue-400" href="https://www.goodreads.com/user/show/65474722-jesse" target="_blank" rel="noreferrer noopener">Visit Goodreads profile →</a>
       </main>
     </div>
   )
 }
 
-// export async function getStaticProps() {
-//   const res = await fetch('https://jessehaenen.me/api/book.py')
-//   const data = await res.json()
-//   console.log(data)
-//   if (!data) {
-//     return {
-//       props: {
-//         book: {
-//           author: "Andy Weir",
-//           title: "Project Hail Mary"
-//         }
-//       }
-//     }
-//   }
-
-//   return {
-//     props: {
-//       book: data,
-//     },
-
-//     revalidate: 10
-//   }
-// }
+export async function getStaticProps() {
+  const res = await fetch('https://jessefh.dev/api/book.py')
+  const data = await res.json()
+  if (data.ok) {
+    return {
+      props: {
+        book: data,
+      },
+    }  
+  }
+  // Fetch from the default prod domain if custom domain is not available.
+  const res_backup = await fetch('https://www-main-jessefh.vercel.app/api/book.py')
+  const data_backup = await res_backup.json()
+  return {
+    props: {
+      book: data_backup,
+    },
+  }
+}

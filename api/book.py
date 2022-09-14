@@ -27,4 +27,3 @@ class handler(BaseHTTPRequestHandler):
 
         self.wfile.write(output_data)
         return
-
