@@ -58,11 +58,24 @@ export default function Home({book}) {
 
 export async function getStaticProps() {
   const res = await fetch('https://jessehaenen.me/api/book.py')
-  const json = await res.json()
+  const data = await res.json()
+
+  if (!data) {
+    return {
+      props: {
+        book: {
+          author: "Andy Weir",
+          title: "Project Hail Mary"
+        }
+      }
+    }
+  }
 
   return {
     props: {
-      book: json,
+      book: data,
     },
+
+    revalidate: 10
   }
 }
