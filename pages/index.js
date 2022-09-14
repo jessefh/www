@@ -57,7 +57,7 @@ export default function Home({book}) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('https://jessefh.dev/api/book.py')
+  const res = await fetch('https://test.dev/api/book.py')
   const data = await res.json()
   if (data.ok) {
     return {
