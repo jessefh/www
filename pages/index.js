@@ -57,21 +57,11 @@ export default function Home({book}) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('https://test.dev/api/book.py')
+  const res = await fetch('https://www-main-jessefh.vercel.app/api/book.py')
   const data = await res.json()
-  if (data.ok) {
-    return {
-      props: {
-        book: data,
-      },
-    }  
-  }
-  // Fetch from the default prod domain if custom domain is not available.
-  const res_backup = await fetch('https://www-main-jessefh.vercel.app/api/book.py')
-  const data_backup = await res_backup.json()
   return {
     props: {
-      book: data_backup,
+      book: data,
     },
   }
 }
