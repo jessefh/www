@@ -1,0 +1,19 @@
+name: Goodreads refresh and check
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  push:
+    branches: [ main ]
+
+jobs:
+  parser-health-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Parser health check (lightweight)
+        run: node scripts/debug-fetch.js
