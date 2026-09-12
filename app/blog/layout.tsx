@@ -1,4 +1,4 @@
-import { getAllPosts } from "../lib/posts";
+import { getAllPostSummaries } from "../lib/posts";
 import BlogSidebar from "./sidebar";
 
 function monthYear(dateStr: string) {
@@ -8,7 +8,7 @@ function monthYear(dateStr: string) {
 }
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
-  const posts = getAllPosts();
+  const posts = getAllPostSummaries();
   const groups: { month: string; posts: { slug: string; title: string }[] }[] = [];
   for (const p of posts) {
     const month = monthYear(p.meta.date || "");
