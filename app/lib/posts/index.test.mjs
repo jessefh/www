@@ -34,6 +34,8 @@ test('getAllPostSummaries reads frontmatter only, caches, and keeps full-post so
   const repoDir = fs.mkdtempSync(path.join(os.tmpdir(), 'posts-repo-'));
   const postsDir = path.join(repoDir, 'posts');
   const unicodeTitle = `${'x'.repeat(1012)}éabc`;
+  const realNow = Date.now;
+  let now = 1_000_000;
   fs.mkdirSync(postsDir);
   fs.writeFileSync(path.join(postsDir, 'older.md'), `---
 title: Older
@@ -55,6 +57,7 @@ date: 2023-06-01
 body`);
 
   process.chdir(repoDir);
+  Date.now = () => now;
 
   try {
     const posts = require(path.join(compiledDir, 'index.js'));
@@ -89,7 +92,22 @@ body`);
       summaries.map((post) => post.slug),
     );
     assert.equal(typeof fullPosts[0].body, 'string');
+
+    fs.writeFileSync(path.join(postsDir, 'older.md'), `---
+title: Older Reloaded
+date: 2024-01-01
+---
+
+body`);
+    now += 60_001;
+
+    const refreshedSummaries = posts.getAllPostSummaries();
+    assert.equal(
+      refreshedSummaries.find((post) => post.slug === 'older')?.meta.title,
+      'Older Reloaded',
+    );
   } finally {
+    Date.now = realNow;
     process.chdir(cwd);
     fs.rmSync(compiledDir, { recursive: true, force: true });
     fs.rmSync(repoDir, { recursive: true, force: true });

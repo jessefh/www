@@ -4,6 +4,7 @@ import { StringDecoder } from 'string_decoder';
 import { matchFrontMatter } from './parser';
 
 const postsDir = path.join(process.cwd(), 'posts');
+const MAX_FRONT_MATTER_BYTES = 16 * 1024;
 
 export function readPostSlugs(): string[] {
   if (!fs.existsSync(postsDir)) return [];
@@ -19,7 +20,7 @@ export function readPostFrontMatter(filename: string) {
   let position = 0;
 
   try {
-    while (true) {
+    while (position < MAX_FRONT_MATTER_BYTES) {
       const bytesRead = fs.readSync(fd, chunk, 0, chunk.length, position);
       if (bytesRead === 0) return content + decoder.end();
 
@@ -31,6 +32,8 @@ export function readPostFrontMatter(filename: string) {
       const match = matchFrontMatter(content);
       if (match) return content.slice(0, match[0].length);
     }
+
+    return content + decoder.end();
   } finally {
     fs.closeSync(fd);
   }
