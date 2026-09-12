@@ -1,20 +1,10 @@
-export type PostMeta = Record<string, string | string[] | undefined> & {
-  title?: string;
-  date?: string;
-  tags?: string[];
-};
-
-export function matchFrontMatter(content: string) {
-  return /^---\r?\n([\s\S]*?)(\r?\n---)(?:\r?\n|$)/.exec(content);
-}
-
 export function parseFrontMatter(content: string) {
   if (!content.startsWith('---')) return { meta: {}, body: content };
-  const match = matchFrontMatter(content);
-  if (!match) return { meta: {}, body: content };
-  const raw = match[1].trim();
-  const body = content.slice(match[0].length).trim();
-  const meta: PostMeta = {};
+  const end = content.indexOf('\n---', 3);
+  if (end === -1) return { meta: {}, body: content };
+  const raw = content.slice(3, end + 0).trim();
+  const body = content.slice(end + 4).trim();
+  const meta: Record<string, any> = {};
   raw.split(/\n+/).forEach(line => {
     const [k, ...rest] = line.split(':');
     if (!k) return;
@@ -27,11 +17,11 @@ export function parseFrontMatter(content: string) {
       } else {
         meta[key] = val.replace(/^['"]|['"]$/g, '');
       }
-    } catch {
+    } catch (e) {
       meta[key] = val;
     }
   });
   return { meta, body };
 }
 
-export type Post = { slug: string; meta: PostMeta; body: string };
+export type Post = { slug: string; meta: Record<string, any>; body: string };

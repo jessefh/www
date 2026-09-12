@@ -1,44 +1,11 @@
 import fs from 'fs';
 import path from 'path';
-import { StringDecoder } from 'string_decoder';
-import { matchFrontMatter } from './parser';
 
 const postsDir = path.join(process.cwd(), 'posts');
-const MAX_FRONT_MATTER_BYTES = 16 * 1024;
 
 export function readPostSlugs(): string[] {
   if (!fs.existsSync(postsDir)) return [];
   return fs.readdirSync(postsDir).filter(f => f.endsWith('.md'));
-}
-
-export function readPostFrontMatter(filename: string) {
-  const full = path.join(postsDir, filename);
-  const fd = fs.openSync(full, 'r');
-  const chunk = Buffer.alloc(1024);
-  const decoder = new StringDecoder('utf8');
-  let content = '';
-  let position = 0;
-
-  try {
-    const flush = () => content + decoder.end();
-
-    while (position < MAX_FRONT_MATTER_BYTES) {
-      const bytesRead = fs.readSync(fd, chunk, 0, chunk.length, position);
-      if (bytesRead === 0) return flush();
-
-      position += bytesRead;
-      content += decoder.write(chunk.subarray(0, bytesRead));
-
-      if (!content.startsWith('---')) return flush();
-
-      const match = matchFrontMatter(content);
-      if (match) return flush().slice(0, match[0].length);
-    }
-
-    return flush();
-  } finally {
-    fs.closeSync(fd);
-  }
 }
 
 export function readPostFile(filename: string) {
