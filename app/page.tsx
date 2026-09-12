@@ -8,7 +8,7 @@ export default async function Home() {
     <div>
       <h1 style={{ fontSize: "clamp(28px, 5vw, 40px)", margin: "0 0 20px" }}>
         <span style={{ color: "var(--faint)" }}>Hi, I&rsquo;m </span>
-        <span style={{ color: "var(--ink)" }}>Jesse Haenen</span>
+        <span style={{ color: "var(--ink)" }}>Jesse.</span>
       </h1>
       <div className="prose">
         <p>
