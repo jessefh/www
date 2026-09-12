@@ -33,6 +33,7 @@ test('getAllPostSummaries reads frontmatter only, caches, and keeps full-post so
   const compiledDir = compilePostsModule();
   const repoDir = fs.mkdtempSync(path.join(os.tmpdir(), 'posts-repo-'));
   const postsDir = path.join(repoDir, 'posts');
+  const unicodeTitle = `${'x'.repeat(1012)}éabc`;
   fs.mkdirSync(postsDir);
   fs.writeFileSync(path.join(postsDir, 'older.md'), `---
 title: Older
@@ -46,6 +47,12 @@ date: 2025-01-01\r
 ---\r
 \r
 ${'new\r\n'.repeat(2000)}`);
+  fs.writeFileSync(path.join(postsDir, 'unicode.md'), `---
+title: ${unicodeTitle}
+date: 2023-06-01
+---
+
+body`);
 
   process.chdir(repoDir);
 
@@ -64,6 +71,7 @@ ${'new\r\n'.repeat(2000)}`);
         [
           { slug: 'newer', title: 'Newer' },
           { slug: 'older', title: 'Older' },
+          { slug: 'unicode', title: unicodeTitle },
         ],
       );
       assert.equal('body' in summaries[0], false);
