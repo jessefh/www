@@ -5,7 +5,8 @@ let cached: { ts: number; posts: Post[] } | null = null;
 let cachedSummaries: { ts: number; posts: PostSummary[] } | null = null;
 const TTL = 60 * 1000; // 60s cache for server process
 
-type PostSummary = { slug: string; meta: PostMeta };
+type PostSummaryMeta = PostMeta & { title: string };
+type PostSummary = { slug: string; meta: PostSummaryMeta };
 
 export function getPostSlugs(): string[] {
   return readPostSlugs();
@@ -22,7 +23,13 @@ function getPostSummaryBySlug(filename: string): PostSummary {
   const raw = readPostFrontMatter(filename);
   const { meta } = parseFrontMatter(raw);
   const slug = filename.replace(/\.md$/, '');
-  return { slug, meta };
+  return {
+    slug,
+    meta: {
+      ...meta,
+      title: meta.title || slug,
+    },
+  };
 }
 
 export function getAllPosts() {

@@ -55,6 +55,11 @@ date: 2023-06-01
 ---
 
 body`);
+  fs.writeFileSync(path.join(postsDir, 'untitled.md'), `---
+date: 2022-01-01
+---
+
+body`);
 
   process.chdir(repoDir);
   Date.now = () => now;
@@ -75,6 +80,7 @@ body`);
           { slug: 'newer', title: 'Newer' },
           { slug: 'older', title: 'Older' },
           { slug: 'unicode', title: unicodeTitle },
+          { slug: 'untitled', title: 'untitled' },
         ],
       );
       assert.equal('body' in summaries[0], false);
