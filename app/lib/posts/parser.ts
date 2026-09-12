@@ -4,12 +4,21 @@ export type PostMeta = Record<string, string | string[] | undefined> & {
   tags?: string[];
 };
 
+export function findFrontMatterEnd(content: string) {
+  const match = /\r?\n---/.exec(content.slice(3));
+  if (!match || match.index === undefined) return null;
+
+  const newlineLength = match[0].startsWith('\r\n') ? 2 : 1;
+  const end = match.index + 3;
+  return { end, boundaryLength: newlineLength + 3 };
+}
+
 export function parseFrontMatter(content: string) {
   if (!content.startsWith('---')) return { meta: {}, body: content };
-  const end = content.indexOf('\n---', 3);
-  if (end === -1) return { meta: {}, body: content };
-  const raw = content.slice(3, end + 0).trim();
-  const body = content.slice(end + 4).trim();
+  const frontMatterEnd = findFrontMatterEnd(content);
+  if (!frontMatterEnd) return { meta: {}, body: content };
+  const raw = content.slice(3, frontMatterEnd.end).trim();
+  const body = content.slice(frontMatterEnd.end + frontMatterEnd.boundaryLength).trim();
   const meta: PostMeta = {};
   raw.split(/\n+/).forEach(line => {
     const [k, ...rest] = line.split(':');
