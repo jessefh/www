@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { VT323, Source_Serif_4 } from "next/font/google";
 import ThemeToggle from "./theme-toggle";
 import "./globals.css";
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="main">{children}</main>
 
         <footer className="footer">© 2026 jessefh.dev. Updated occasionally.</footer>
+        <Analytics />
       </body>
     </html>
   );
