@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { findFrontMatterEnd } from './parser';
+import { matchFrontMatter } from './parser';
 
 const postsDir = path.join(process.cwd(), 'posts');
 
@@ -26,8 +26,8 @@ export function readPostFrontMatter(filename: string) {
 
       if (!content.startsWith('---')) return content;
 
-      const frontMatterEnd = findFrontMatterEnd(content);
-      if (frontMatterEnd) return content.slice(0, frontMatterEnd.end + frontMatterEnd.boundaryLength);
+      const match = matchFrontMatter(content);
+      if (match) return content.slice(0, match[0].length);
     }
   } finally {
     fs.closeSync(fd);
