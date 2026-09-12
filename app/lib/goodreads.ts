@@ -5,7 +5,7 @@ export type GoodreadsBook = {
   bookAuthorUrl: string;
 };
 
-const GOODREADS_PROFILE_URL = "https://www.goodreads.com/user/show/65474722-jesse";
+export const GOODREADS_PROFILE_URL = "https://www.goodreads.com/user/show/65474722-jesse";
 
 const FALLBACK_BOOK: GoodreadsBook = {
   bookTitle: "De Graaf van Montecristo",

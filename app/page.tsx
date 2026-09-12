@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getCurrentlyReading } from "./lib/goodreads";
+import { getCurrentlyReading, GOODREADS_PROFILE_URL } from "./lib/goodreads";
 
 export default async function Home() {
   const current = await getCurrentlyReading();
@@ -12,7 +12,7 @@ export default async function Home() {
       </h1>
       <div className="prose">
         <p>
-          Currently reading: <Link href={current.bookTitleUrl}>{current.bookTitle}</Link>.
+          Currently reading: <Link href={GOODREADS_PROFILE_URL}>{current.bookTitle}</Link>.
         </p>
       </div>
       <p style={{ marginTop: 28 }}>
