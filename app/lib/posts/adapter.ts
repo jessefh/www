@@ -20,20 +20,22 @@ export function readPostFrontMatter(filename: string) {
   let position = 0;
 
   try {
+    const flush = () => content + decoder.end();
+
     while (position < MAX_FRONT_MATTER_BYTES) {
       const bytesRead = fs.readSync(fd, chunk, 0, chunk.length, position);
-      if (bytesRead === 0) return content + decoder.end();
+      if (bytesRead === 0) return flush();
 
       position += bytesRead;
       content += decoder.write(chunk.subarray(0, bytesRead));
 
-      if (!content.startsWith('---')) return content;
+      if (!content.startsWith('---')) return flush();
 
       const match = matchFrontMatter(content);
-      if (match) return content.slice(0, match[0].length);
+      if (match) return flush().slice(0, match[0].length);
     }
 
-    return content + decoder.end();
+    return flush();
   } finally {
     fs.closeSync(fd);
   }
