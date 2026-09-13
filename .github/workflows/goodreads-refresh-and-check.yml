@@ -2,7 +2,7 @@ name: Goodreads refresh and check
 
 on:
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 9 * * 0'
   push:
     branches: [ main ]
 
